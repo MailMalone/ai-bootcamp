@@ -1,0 +1,1 @@
+This is the first artifact for the AI Bootcamp!
