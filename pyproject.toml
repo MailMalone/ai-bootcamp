@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "ApexDelta", email = "66366373+MailMalone@users.noreply.github.com" }
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
