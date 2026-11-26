@@ -11,3 +11,5 @@ wheels/
 
 #Secrets
 .env
+# Local chat usage log
+/cost_log.csv
