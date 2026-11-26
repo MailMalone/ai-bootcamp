@@ -55,3 +55,16 @@ docker exec -w /tmp/day3 bootcamp-day3 psql -X -U postgres -d bootcamp_day3 -v O
 Run the last command once PostgreSQL reports that it is accepting connections. The load should report 123 rows. See the [five findings](day3/insights.md) and the [index comparison](day3/insights.md#index-comparison).
 
 The CSV comes from the [reference bootcamp's Day 3 branch](https://github.com/PranavBShenoy/ai-studio-bootcamp/blob/3631f2b7ee07606d72029e57ae8416f05d16f336/vendor_payments.csv).
+
+## Day 4 — Streaming Claude chat
+
+From the repository root, copy `.env.example` to `.env` if you do not have one, then set `ANTHROPIC_API_KEY` in `.env`. Run:
+
+```sh
+uv sync
+uv run python -m ai_bootcamp.chat
+```
+
+Type `quit` or press Ctrl+C to exit. The chat keeps the last five completed turns in memory. Each completed reply adds a row to the local `cost_log.csv` with the model, token counts, and estimated cost in USD. The estimate uses $1 per million input tokens and $5 per million output tokens. [Claude Haiku 4.5 pricing](https://platform.claude.com/docs/en/models/haiku-4-5/overview)
+
+The API key has not been provided yet, so live API testing has not been done.
