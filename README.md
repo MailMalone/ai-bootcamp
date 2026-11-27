@@ -68,3 +68,17 @@ uv run python -m ai_bootcamp.chat
 Type `quit` or press Ctrl+C to exit. The chat keeps the last five completed turns in memory. Each completed reply adds a row to the local `cost_log.csv` with the model, token counts, and estimated cost in USD. The estimate uses $1 per million input tokens and $5 per million output tokens. [Claude Haiku 4.5 pricing](https://platform.claude.com/docs/en/models/haiku-4-5/overview)
 
 The API key has not been provided yet, so live API testing has not been done.
+
+## Day 5 — Triage equipment complaints
+
+Run the triager with an API key in `.env`:
+
+```sh
+uv sync
+uv run ai-triage "The ventilator stopped during use and the backup is not working."
+uv run ai-triage --evaluate
+```
+
+The first command returns schema-validated JSON. The evaluation command scores the same 20 labeled complaints with prompts v1 and v2, saves each result in `day5/accuracy.csv`, and resumes from saved rows if interrupted. The overall score counts a case as correct only when all four output fields match the expected values.
+
+The Anthropic API key has not been provided, so live triage and the 20 sample evaluation have not been run. The accuracy sheet has blank predictions and scores until an API key is available.
